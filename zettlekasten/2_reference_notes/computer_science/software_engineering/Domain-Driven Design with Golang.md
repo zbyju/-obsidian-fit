@@ -1,3 +1,4 @@
+# Notes
 There are 3 main pillars:
 1. Ubiquitous language
 	- The process of building a common language (between engineers and business)
