@@ -1,8 +1,15 @@
 # Notes
 
+---
+
 # Summary
+
+---
+
 # Final thoughts
 ## Content
 ## Style
 ## Value
-## Comparisons
+## Comparisons and links
+
+---

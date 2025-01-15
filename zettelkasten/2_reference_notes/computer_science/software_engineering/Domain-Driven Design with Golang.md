@@ -18,5 +18,19 @@ Ubiquitous language should always be applied only to one bounded context.
 - One word might mean something else in different contexts and that's okay.
 - The language should be rigorous, it shouldn't lose its meaning.
 	- Customer might mean different things in different contexts, don't try to merge the meanings because we are losing rigorousness.
+## Strategic design
+## Tactical design
 
-## Final thoughts
+---
+
+# Summary
+
+---
+
+# Final thoughts
+## Content
+## Style
+## Value
+## Comparisons and links
+
+---
