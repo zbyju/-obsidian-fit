@@ -116,6 +116,40 @@ Outside of aggregates we should strive for eventual consistency.
 We need to find bounded context's invariants (rules that must always be true).
 
 When we are dealing with aggregates we are declaring that we are looking for a **transactional consistency** instead of eventual consistency.
+### Factory
+Factories **standardize** (and ensure invariants are enforced) the way we create domain objects while **hiding additional logic** and only exposing the minimal interface for creating the object.
+
+#### Entity factory
+They should provide the minimal interface for creating the entity, additional properties can be passed via methods on the entity to change its state.
+
+This is a good place for generating IDs for the entity. Although passing the ID in is a also viable.
+### Repository
+It is a layer for interacting with data sources (e.g. database, S3, files, ...). They are an interface with an implementation, which allows us to replace these implementations to change the underlying data source (switching databases).
+
+*Common mistake: creating one struct/class per database table. Instead create one struct per aggregate.*
+#### Command and Query Responsibility Segregation (CQRS)
+Approach where commands access the repository layer but queries go directly fetch the data from the data source.
+
+This works because queries don't (shouldn't) modify the data and therefore break any invariants/logic.
+### Services
+Services further help structure our code.
+#### Domain services
+They are for stateless operations that we can't model well on any domain object => they go into a domain service.
+
+How to tell to user domain service:
+1. The code is performing a significant piece of business logic
+2. Transforming one domain object into another
+3. Using multiple domain objects
+
+We still need to be using ubiquitous language.
+
+When other consumers are using this service we are making sure that business invariants are enforced.
+
+Domain services interact only with domain objects (not going outside the domain layer).
+#### Application services
+They are used for composing other services and repositories. They are responsible for managing transactional guarantee and they don't contain domain logic.
+
+They should be super thin, only calling other services/layers or address security concerns.
 
 ---
 
