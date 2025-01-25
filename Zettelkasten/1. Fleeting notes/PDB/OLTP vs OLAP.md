@@ -1,2 +1,0 @@
-Online transactional processing
-Online analytical processing
